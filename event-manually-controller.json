@@ -1,0 +1,384 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "mxtu9jwbvejzf"
+  },
+  "info": {
+    "title": "api.event-manually-controller",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/event/manually": {
+      "post": {
+        "tags": [
+          "event-manually-controller"
+        ],
+        "operationId": "create_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cause": {
+                    "type": "integer"
+                  },
+                  "direction": {
+                    "type": "string"
+                  },
+                  "event_speed": {
+                    "type": "integer"
+                  },
+                  "is_road_blocked": {
+                    "type": "boolean"
+                  },
+                  "lanes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "start": {
+                    "type": "object",
+                    "properties": {
+                      "latitude": {
+                        "type": "integer"
+                      },
+                      "longitude": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "end": {
+                    "type": "object",
+                    "properties": {
+                      "latitude": {
+                        "type": "integer"
+                      },
+                      "longitude": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "picket_start": {
+                    "type": "integer"
+                  },
+                  "picket_end": {
+                    "type": "integer"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "obu_id": {
+                    "type": "integer"
+                  },
+                  "state": {
+                    "type": "string"
+                  }
+                },
+                "x-examples": {
+                  "Example 1": {
+                    "cause": 0,
+                    "direction": "string",
+                    "event_speed": 0,
+                    "is_road_blocked": true,
+                    "lanes": [
+                      0
+                    ],
+                    "start": {
+                      "latitude": 0,
+                      "longitude": 0
+                    },
+                    "end": {
+                      "latitude": 0,
+                      "longitude": 0
+                    },
+                    "picket_start": 0,
+                    "picket_end": 0,
+                    "location": "string",
+                    "obu_id": 0,
+                    "state": "string"
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "cause": 0,
+                    "direction": "string",
+                    "event_speed": 0,
+                    "is_road_blocked": true,
+                    "lanes": [
+                      0
+                    ],
+                    "start": {
+                      "latitude": 0,
+                      "longitude": 0
+                    },
+                    "end": {
+                      "latitude": 0,
+                      "longitude": 0
+                    },
+                    "picket_start": 0,
+                    "picket_end": 0,
+                    "location": "string",
+                    "obu_id": 0,
+                    "state": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "validation_result": {
+                      "type": "object",
+                      "properties": {
+                        "success": {
+                          "type": "boolean"
+                        },
+                        "common_errors": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "fields": {
+                          "type": "object",
+                          "properties": {
+                            "additionalProp1": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProp2": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProp3": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "integer"
+                    },
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "validation_result": {
+                        "success": true,
+                        "common_errors": [
+                          "string"
+                        ],
+                        "fields": {
+                          "additionalProp1": [
+                            "string"
+                          ],
+                          "additionalProp2": [
+                            "string"
+                          ],
+                          "additionalProp3": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "data": 0,
+                      "success": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "validation_result": {
+                        "success": true,
+                        "common_errors": [
+                          "string"
+                        ],
+                        "fields": {
+                          "additionalProp1": [
+                            "string"
+                          ],
+                          "additionalProp2": [
+                            "string"
+                          ],
+                          "additionalProp3": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "data": 0,
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/event/manually/close/{id}": {
+      "post": {
+        "tags": [
+          "event-manually-controller"
+        ],
+        "operationId": "close",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "validation_result": {
+                      "type": "object",
+                      "properties": {
+                        "success": {
+                          "type": "boolean"
+                        },
+                        "common_errors": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "fields": {
+                          "type": "object",
+                          "properties": {
+                            "additionalProp1": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProp2": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProp3": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "boolean"
+                    },
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "validation_result": {
+                        "success": true,
+                        "common_errors": [
+                          "string"
+                        ],
+                        "fields": {
+                          "additionalProp1": [
+                            "string"
+                          ],
+                          "additionalProp2": [
+                            "string"
+                          ],
+                          "additionalProp3": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "data": true,
+                      "success": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "validation_result": {
+                        "success": true,
+                        "common_errors": [
+                          "string"
+                        ],
+                        "fields": {
+                          "additionalProp1": [
+                            "string"
+                          ],
+                          "additionalProp2": [
+                            "string"
+                          ],
+                          "additionalProp3": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "data": true,
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
